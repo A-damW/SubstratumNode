@@ -51,7 +51,7 @@ impl SocketServer for Bootstrapper {
     fn serve_without_root(&mut self) {
         let stream_handler_pool_subs =
             self.actor_system_factory.make_and_start_actors(
-                self.config.as_ref().unwrap().dns_servers.clone(),
+                self.config.as_ref().expect("Missing BootstrapperConfig - call initialize_as_root first").dns_servers.clone(),
             );
 
         while self.listener_handlers.len () > 0 {
@@ -420,19 +420,16 @@ mod tests {
             self
         }
 
-        #[allow (dead_code)]
         fn actor_system_factory (mut self, actor_system_factory: Box<ActorSystemFactory>) -> DispatcherBuilder {
             self.actor_system_factory = actor_system_factory;
             self
         }
 
-        #[allow (dead_code)]
         fn add_listener_handler (mut self, listener_handler: ListenerHandlerNull) -> DispatcherBuilder {
             self.listener_handler_factory.add (listener_handler);
             self
         }
 
-        #[allow (dead_code)]
         fn build (self) -> Bootstrapper {
             let stream_handler_pool_subs = match &self.stream_handler_pool_cluster {
                 &Some (ref shpc) => Some (shpc.subs.clone ()),
