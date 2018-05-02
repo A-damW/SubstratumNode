@@ -77,7 +77,7 @@ Copyright (c) 2017-2018, Substratum LLC (https://substratum.net) and/or its affi
 # Step-By-Step Guide for Lubuntu 16.04.4
 Added by AdamW 2018-04-30 _Please feel free to copy, modify, or use the following guide as you fit_
 
-_Note: This guide is based off SubstratumNode 0.3.0 and Lubuntu 16.04.4 running in live mode from RAM, while it should be easy to_
+_Note: This guide is based off SubstratumNode 0.3.0 and Lubuntu 16.04.4 64bit Desktop running in live mode from RAM, while it should be easy to_
 _replicate on any *buntu flavor, your miliage may vary._
 
 DISCLAIMER: Guess what, I'm going to keep this short. If you have root(or user!) access to the environment you are using, then YOU are
@@ -140,7 +140,7 @@ sudo apt install libssl-dev
 ```
 sudo apt install pkg-config
 ```
-13. Log out and log back in to set Cargo's(rust package manager) bin directory to you shell PATH environment variable permanently. 
+13. Log out and log back in to add Cargo's(rust package manager) bin directory to you shell PATH environment variable permanently. 
     Or, you can:
     Add Cargo's bin directory to you shell PATH environment variable:
     (NOTE: This only sets the PATH for the current terminal window so run the next step(step 14) in the same terminal window, otherwise it will fail.)
@@ -177,9 +177,8 @@ sudo ./build.sh
 ```
 sudo ./run.sh
 ```
-19. You should see an outdated Firefox (version 41.0.2) window open,
+19. You should see an older Firefox (version 41.0.2) window open,
     and you should see Docker container stats from step 16.
     Now go to (https://substratum.net) and rejoice in the beginnings of the decentralized web!!
 
 AdamW
-
