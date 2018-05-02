@@ -71,3 +71,112 @@ We do plan to release binaries that will run on 32-bit Windows, but they will li
 
 
 Copyright (c) 2017-2018, Substratum LLC (https://substratum.net) and/or its affiliates. All rights reserved.
+
+# Step-By-Step Guide for Lubuntu 16.04.4
+Added by AdamW 2018-04-30 _Please feel free to copy, modify, or use the following guide as you fit_
+
+_Note: This guide is based off SubstratumNode 0.3.0 and Lubuntu 16.04.4 running in live mode from RAM, while it should be easy to_
+_replicate on any *buntu flavor, your miliage may vary._
+
+DISCLAIMER: Guess what, I'm going to keep this short. If you have root(or user!) access to the environment you are using, then YOU are
+responsible for the code that you execute, so at least have a basic understanding of what you are running. (Or boot up a livecd/usb 
+session and not worry about breaking something;)
+
+All commands in `Code Boxes` should be copy paste-able into a teminal. They are prefaced with `sudo ` where root privileges are needed.
+If you don't want to type your password for every command, run `sudo su` to run all subsequent commands with root privileges, then just
+omit the `sudo ` from your copy-past commands.
+
+
+1. Refresh APT repositories:
+```
+sudo apt update
+```
+2. Install curl:
+```
+sudo apt install curl
+```
+3. Install rust
+  Navigate to [here](https://www.rustup.rs/), copy and run the code provided.
+  Or just paste this(should be the same as above link.)
+```
+curl https://sh.rustup.rs -sSf | sh
+```
+4. Install git:
+```
+sudo apt install git
+```
+5. Clone(download) a local copy of the source code from Github: (This will clone the repository into whaterver folder
+  your terminal is currently at, CTL+ALT+T should open a terminal pointed at your home directory.)
+```
+git clone https://github.com/SubstratumNetwork/SubstratumNode.git
+```
+6. Install Docker:
+```
+sudo apt install docker.io
+```
+7. Make sure Docker is running:
+```
+systemctl status docker
+```
+8. If Docker is NOT running try:
+```
+systemctl start docker
+```
+9. Install gcc:
+```
+sudo apt install gcc
+```
+10. Install Make:
+```
+sudo apt install make
+```
+11. Install libssl-dev:
+```
+sudo apt install libssl-dev
+```
+12. Install pkg-config:
+```
+sudo apt install pkg-config
+```
+13. Log out and log back in to set Cargo's(rust package manager) bin directory to you shell PATH environment variable permanently. 
+    Or, you can:
+    Add Cargo's(rust package manager) bin directory to you shell PATH environment variable:
+    (NOTE: This only sets the PATH for the current terminal window so run the next step(step 14) in the same terminal window, otherwise it will fail.)
+```
+source $HOME/.cargo/env
+```
+14. Time to compile! Navigate to your home directory, you should see a folder named `SubstratumNode`.
+    You should be able to run the command below if your `git clone ` (step 5, above) was executed in your home folder.
+    This will take more then a couple minutes, so go make yourself some Hibiscus tea to replenish your antioxidants.
+```
+$HOME/SubstratumNode/ci/all.sh
+```
+15. xhost permissions:
+    It took me awhile to figure this one out, I think the Docker container needs xhost permissions to connect to sockets(not sure).
+    You may want to run `xhost` (no plus sign) first, to see what permissions are set so you can revert later.
+    The command below allows any user or group to connect(removes all access control).
+    WARNING: I do not know the full implications of removing all access control, I am running in a live session so it does not matter to me.
+    Do you your research!
+```
+xhost +
+```
+16. Open a separate terminal to see what is going on in your SubstratumNode Docker container:
+    This will start showing stats after the final commands (step 19 and 18) have completed.
+```
+sudo docker stats
+```
+17. Navigate to `SubstratumNode/node/docker/linux_node` folder and run:
+    This will download some Docker container stuff(Firefox I think)
+```
+sudo ./build.sh
+```
+18. Close all instances of Firefox, otherwise the next command will fail.
+    Navigate to `SubstratumNode/node/docker/linux_node` folder and run:
+```
+sudo ./run.sh
+```
+    You should see an outdated Firefox (version 41.0.2) window open, and you should see Docker container stats from step 16.
+    Now go to (https://substratum.net) and rejoice in the beginnings of the decentralized web!!
+
+AdamW
+
