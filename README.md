@@ -163,7 +163,7 @@ $HOME/SubstratumNode/ci/all.sh
 xhost +
 ```
 16. Open a separate terminal to see what is going on in your SubstratumNode Docker container:
-    This will start showing stats after the final commands (step 19 and 18) have completed.
+    This will start showing stats after the final commands (step 17 and 18) have completed.
 ```
 sudo docker stats
 ```
@@ -177,9 +177,8 @@ sudo ./build.sh
 ```
 sudo ./run.sh
 ```
-```
-
-    You should see an outdated Firefox (version 41.0.2) window open, and you should see Docker container stats from step 16.
+19. You should see an outdated Firefox (version 41.0.2) window open,
+    and you should see Docker container stats from step 16.
     Now go to (https://substratum.net) and rejoice in the beginnings of the decentralized web!!
 
 AdamW
