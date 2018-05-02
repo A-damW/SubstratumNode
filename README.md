@@ -78,13 +78,13 @@ Copyright (c) 2017-2018, Substratum LLC (https://substratum.net) and/or its affi
 Added by AdamW 2018-04-30 _Please feel free to copy, modify, or use the following guide as you fit_
 
 _Note: This guide is based off SubstratumNode 0.3.0 and Lubuntu 16.04.4 64bit Desktop running in live mode from RAM, while it should be easy to_
-_replicate on any *buntu flavor, your miliage may vary._
+_replicate on any *buntu flavor, your mileage may vary._
 
 DISCLAIMER: Guess what, I'm going to keep this short. If you have root(or user!) access to the environment you are using, then YOU are
 responsible for the code that you execute, so at least have a basic understanding of what you are running. (Or boot up a livecd/usb 
 session and not worry about breaking something ;)
 
-All commands in `Code Boxes` should be copy paste-able into a teminal. They are prefaced with `sudo ` where root privileges are needed.
+All commands in `Code Boxes` should be copy paste-able into a terminal. They are prefaced with `sudo ` where root privileges are needed.
 If you don't want to type your password for every command, run `sudo su` to run all subsequent commands with root privileges, then just
 omit the `sudo ` from your copy-past commands.
 
@@ -107,7 +107,7 @@ curl https://sh.rustup.rs -sSf | sh
 ```
 sudo apt install git
 ```
-5. Clone(download) a local copy of the source code from Github: (This will clone the repository into whaterver folder
+5. Clone(download) a local copy of the source code from Github: (This will clone the repository into whatever folder
   your terminal is currently at, CTL+ALT+T should open a terminal pointed at your home directory.)
 ```
 git clone https://github.com/SubstratumNetwork/SubstratumNode.git
