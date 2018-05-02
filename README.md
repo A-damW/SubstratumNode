@@ -177,7 +177,7 @@ sudo ./build.sh
 ```
 sudo ./run.sh
 ```
-
+```
 
     You should see an outdated Firefox (version 41.0.2) window open, and you should see Docker container stats from step 16.
     Now go to (https://substratum.net) and rejoice in the beginnings of the decentralized web!!
