@@ -72,6 +72,8 @@ We do plan to release binaries that will run on 32-bit Windows, but they will li
 
 Copyright (c) 2017-2018, Substratum LLC (https://substratum.net) and/or its affiliates. All rights reserved.
 
+
+
 # Step-By-Step Guide for Lubuntu 16.04.4
 Added by AdamW 2018-04-30 _Please feel free to copy, modify, or use the following guide as you fit_
 
@@ -80,7 +82,7 @@ _replicate on any *buntu flavor, your miliage may vary._
 
 DISCLAIMER: Guess what, I'm going to keep this short. If you have root(or user!) access to the environment you are using, then YOU are
 responsible for the code that you execute, so at least have a basic understanding of what you are running. (Or boot up a livecd/usb 
-session and not worry about breaking something;)
+session and not worry about breaking something ;)
 
 All commands in `Code Boxes` should be copy paste-able into a teminal. They are prefaced with `sudo ` where root privileges are needed.
 If you don't want to type your password for every command, run `sudo su` to run all subsequent commands with root privileges, then just
@@ -95,9 +97,9 @@ sudo apt update
 ```
 sudo apt install curl
 ```
-3. Install rust
+3. Install rust.
   Navigate to [here](https://www.rustup.rs/), copy and run the code provided.
-  Or just paste this(should be the same as above link.)
+  Or just paste this (should be the same as link.):
 ```
 curl https://sh.rustup.rs -sSf | sh
 ```
@@ -140,7 +142,7 @@ sudo apt install pkg-config
 ```
 13. Log out and log back in to set Cargo's(rust package manager) bin directory to you shell PATH environment variable permanently. 
     Or, you can:
-    Add Cargo's(rust package manager) bin directory to you shell PATH environment variable:
+    Add Cargo's bin directory to you shell PATH environment variable:
     (NOTE: This only sets the PATH for the current terminal window so run the next step(step 14) in the same terminal window, otherwise it will fail.)
 ```
 source $HOME/.cargo/env
@@ -174,7 +176,7 @@ sudo ./build.sh
     Navigate to `SubstratumNode/node/docker/linux_node` folder and run:
 ```
 sudo ./run.sh
-```
+
     You should see an outdated Firefox (version 41.0.2) window open, and you should see Docker container stats from step 16.
     Now go to (https://substratum.net) and rejoice in the beginnings of the decentralized web!!
 
