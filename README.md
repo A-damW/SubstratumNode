@@ -147,13 +147,7 @@ sudo apt install pkg-config
 ```
 source $HOME/.cargo/env
 ```
-14. Time to compile! Navigate to your home directory, you should see a folder named `SubstratumNode`.
-    You should be able to run the command below if your `git clone ` (step 5, above) was executed in your home folder.
-    This will take more then a couple minutes, so go make yourself some Hibiscus tea to replenish your antioxidants.
-```
-$HOME/SubstratumNode/ci/all.sh
-```
-15. xhost permissions:
+14. xhost permissions:
     It took me awhile to figure this one out, I think the Docker container needs xhost permissions to connect to sockets(not sure).
     You may want to run `xhost` (no plus sign) first, to see what permissions are set so you can revert later.
     The command below allows any user or group to connect(removes all access control).
@@ -161,6 +155,12 @@ $HOME/SubstratumNode/ci/all.sh
     Do you your research!
 ```
 xhost +
+```
+15. Time to compile! Navigate to your home directory, you should see a folder named `SubstratumNode`.
+    You should be able to run the command below if your `git clone ` (step 5, above) was executed in your home folder.
+    This will take more then a couple minutes, so go make yourself some Hibiscus tea to replenish your antioxidants.
+```
+$HOME/SubstratumNode/ci/all.sh
 ```
 16. Open a separate terminal to see what is going on in your SubstratumNode Docker container:
     This will start showing stats after the final commands (step 17 and 18) have completed.
